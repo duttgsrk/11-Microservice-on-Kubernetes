@@ -5,9 +5,9 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                     {
+                     
                         sh "docker build -t dutt1/adservice:latest ."
-                    }
+                    
                 }
             }
         }
