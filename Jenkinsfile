@@ -14,7 +14,7 @@ pipeline {
         stage('verify Deployment') {
             steps {
                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8-token', namespace: '', restrictKubeConfigAccess: false, serverUrl: '')  {
-                    sh "kubectl get svc -n webapps"
+                    sh "kubectl get svc"
                 }
             }
         }
