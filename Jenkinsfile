@@ -5,7 +5,8 @@ pipeline {
         stage('Deploy To Kubernetes') {
             steps {
                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8-token', namespace: '', restrictKubeConfigAccess: false, serverUrl: '')  {
-                    sh "kubectl apply -f deployment-service.yml"
+                    sh "kubectl create ns webapps"
+                    sh "kubectl apply -f deployment-service.yml -n webapps"
                     
                 }
             }
